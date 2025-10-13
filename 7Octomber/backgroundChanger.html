@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Changer</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            padding: 16px;
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        p {
+            margin: 8px;
+            padding: 8px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" id="backgroundChangerbtns">Background Changer</button>
+    <p id="colorCode">Color : #ffffff</p>
+
+
+    <script>
+        let backgroundChangerbtns = document.getElementById("backgroundChangerbtns");
+        let colorCode = document.getElementById("colorCode");
+
+        backgroundChangerbtns.addEventListener("click",function(){
+            function generateColor(){
+                let colorsArray = [];
+                for(let i=0;i<6;i++){
+                    let randomNumber = Math.floor(Math.random() * 16777215);
+                    colorsArray.push(randomNumber);
+                }
+                
+                let hexColors = colorsArray.map(number =>
+                    "#" + number.toString(16).padStart(6,"0")
+                );
+
+
+                let randomColor = hexColors[Math.floor(Math.random() * hexColors.length)];
+
+                document.body.style.backgroundColor = randomColor;
+                colorCode.innerText = "Color : " + randomColor;
+            }
+            generateColor();
+        });
+    </script>
+</body>
+</html>

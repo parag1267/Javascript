@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape Area Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 13px;
+            box-shadow: 0px 0px 10px gray;
+            width: 300px;
+            text-align: center;
+        }
+
+        input,
+        select,
+        button {
+            margin: 10px;
+            padding: 8px;
+            width: 90%;
+            border-radius: 6px;
+            border: 1px solid #aaa;
+        }
+
+        button {
+            background-color: dodgerblue;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: royalblue;
+        }
+
+        p {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <select name="shape" id="shape">
+            <option value="">--Select Option--</option>
+            <option value="Square">Square</option>
+            <option value="Rectangle">Rectangle</option>
+            <option value="Triangle">Triangle</option>
+            <option value="Circle">Circle</option>
+        </select>
+
+        <div class="input" id="input"></div>
+
+        <button id="calculateBtn">Calculate</button>
+
+        <p id="formula"></p>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        const shapeSelect = document.getElementById("shape");
+        const inputDiv = document.getElementById("input");
+        const result = document.getElementById("result");
+        const formula = document.getElementById("formula");
+        const calculateBtn = document.getElementById("calculateBtn");
+
+        shapeSelect.addEventListener("change", () => {
+            const shape = shapeSelect.value;
+            console.log(shape);
+            inputDiv.innerHTML = "";
+            formula.textContent = "";
+            result.textContent = "";
+
+
+            if (shape === "Square") {
+                inputDiv.innerHTML = `<input type="number" id="side" placeholder="Enter side">`;
+            }
+            else if (shape === "Rectangle") {
+                inputDiv.innerHTML = `<input type="number" id="length" placeholder="Enter length">
+                <input type="number" id="width" placeholder="Enter width">`;
+            }
+            else if (shape === "Triangle") {
+                inputDiv.innerHTML = `<input type="number" id="base" placeholder="Enter base">
+                <input type="number" id="height" placeholder="Enter height">`;
+            }
+            else if (shape === "Circle") {
+                inputDiv.innerHTML = `<input type="number" id="radius" placeholder="Enter radius">`;
+            }
+        });
+
+        calculateBtn.addEventListener("click", () => {
+            const shape = shapeSelect.value;
+            let Area = 0;
+
+            if (shape === "Square") {
+                const side = parseFloat(document.getElementById("side").value);
+                Area = side * side;
+                formula.textContent = `Formula: Area = side * side`;
+            }
+
+            else if (shape === "Rectangle") {
+                const length = parseFloat(document.getElementById("length").value);
+                const width = parseFloat(document.getElementById("width").value);
+
+                Area = length * width;
+                formula.textContent = `Formula: Area = length * width`;
+            }
+
+            else if (shape === "Triangle") {
+                const base = parseFloat(document.getElementById("base").value);
+                const height = parseFloat(document.getElementById("height").value);
+
+                Area = (base * height) / 2;
+                formula.textContent = `Formula: Area = (base * height)/2`;
+            }
+
+            else if (shape === "Circle") {
+                const radius = parseFloat(document.getElementById("radius").value);
+
+                Area = 3.14 * radius * radius;
+                // formula.textContent = `Formula: Area = 3.14 * radius * radius`;
+            }
+
+            else {
+                alert("Please select an shape");
+                return;
+            }
+
+            if (isNaN(Area)) {
+                result.textContent = "Please all filed Correctly!!";
+                formula.textContent = "";
+                return;
+            }
+
+            result.textContent = `Area = ${Area.toFixed(2)}`;
+        });
+
+
+    </script>
+</body>
+
+</html>

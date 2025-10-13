@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Date / Time Display</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #000000;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .greet {
+            background: linear-gradient(to right, #9B442A, #9357C7, #53EDDE);
+            font-size: 44px;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .clock {
+            color: #ffffff;
+            font-size: 24px;
+            padding: 4px;
+            margin: 4px;
+        }
+
+        .date {
+            color: #ffffff;
+            font-size: 24px;
+            padding: 4px;
+            margin: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="greet" id="greet">Good Morning</div>
+    <div class="clock" id="clock">00:00:00</div>
+    <div class="date" id="date">00/00/0000</div>
+
+    <script>
+        function currentTimeAndDate(){
+            let nows = new Date();
+            let CurrentHours = nows.getHours();
+            let CurrentMinutes = nows.getMinutes();
+            let CurrentSeconds = nows.getSeconds();
+            let greet = "";
+            if(CurrentHours >= 5 && CurrentHours < 12){
+                greet = "Good Morning !!";
+            }
+            else if(CurrentHours >=12 && CurrentHours < 17){
+                greet = "Good Afternoon !!";
+            }
+            else if(CurrentHours >=17 && CurrentHours < 21){
+                greet = "Good Evening !!";
+            }
+            else {
+                greet = "Good Night !!";
+            }
+
+            document.getElementById("greet").innerText = greet;
+            CurrentHours = CurrentHours < 10 ? "0" + CurrentHours : CurrentHours;
+            CurrentMinutes = CurrentMinutes < 10 ? "0" + CurrentMinutes : CurrentMinutes;
+            CurrentSeconds = CurrentSeconds < 10 ? "0" + CurrentSeconds : CurrentSeconds;
+
+
+            let real = CurrentHours + ":" + CurrentMinutes + ":" + CurrentSeconds;
+
+
+            document.getElementById("clock").innerText = nows.toLocaleTimeString();
+            document.getElementById("date").innerText = nows.toLocaleDateString("en-IN", {
+                weekday: "long",
+                day: "2-digit",
+                month: "long",
+                year: "numeric"
+            });
+        
+        }
+        setInterval(currentTimeAndDate,1000);
+        currentTimeAndDate();
+    </script>
+</body>
+
+</html>

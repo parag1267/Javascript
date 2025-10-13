@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.greet {
+    /* color: white; */
+    font-size: 44px;
+    background: linear-gradient(to right, #9B442A, #9357C7, #53EDDE);
+    /* gradient */
+    background-clip: text;
+    -webkit-background-clip: text;
+    /* apply gradient to text */
+    -webkit-text-fill-color: transparent;
+    /* make actual text transparent */
+}
+
+
+.clock {
+    color: white;
+    font-size: 24px;
+}

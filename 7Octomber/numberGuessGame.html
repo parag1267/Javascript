@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guess Game</title>
+    <style></style>
+</head>
+
+<body>
+    
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let userGuess;
+        console.log("Random number : " + randomNumber);
+        alert("Welcome Number Guess Game")
+
+        while (true) {
+            userGuess = prompt("Enter number 1 to 100");
+
+            if (userGuess === null) {
+                console.log("Game cancelled by user.");
+                break;
+            }
+
+            userGuess = Number(userGuess);
+            if (userGuess === randomNumber) {
+                alert("Congratulations guess !!");
+                break;
+            }
+
+            else if (userGuess > randomNumber) {
+                alert("Too High !!");
+            }
+
+            else {
+                alert("Too Low !!");
+            }
+        }
+    </script>
+</body>
+
+</html>

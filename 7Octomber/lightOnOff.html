@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light On / Off</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <img src="./images/lightOnOff/pic_bulboff.gif" alt="Bulb off" id="bulb">
+    <br><br>
+    <button id="toggleBtn">Turn ON</button>
+    <p id="status">Light is OFF</p>
+    <script>
+        let Bulb = document.getElementById("bulb");
+        let Button = document.getElementById("toggleBtn");
+        let Status = document.getElementById("status");
+        let isOn = false;
+
+
+        Button.addEventListener("click",() =>{
+            if(isOn){
+                Bulb.src = "./images/lightOnOff/pic_bulboff.gif";
+                Status.textContent = "Light is OFF";
+                Button.textContent = "Turn ON";
+                isOn = false;
+            }
+            else{
+                Bulb.src = "./images/lightOnOff/pic_bulbon.gif";
+                Status.textContent = "Light is ON";
+                Button.textContent = "Turn OFF";
+                isOn = true;
+            }
+        });
+    </script>
+</body>
+</html>

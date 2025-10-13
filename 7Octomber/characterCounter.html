@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charcter Counter</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .CommentSection {
+            border: 2px solid black;
+            padding: 16px;
+            margin: 16px;
+            background-color: cyan;
+        }
+
+        .Comment {
+            padding: 16px;
+            margin: 16px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+
+        .Counter {
+            text-align: end;
+            padding: 8px;
+            margin: 4px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="CommentSection">
+        <textarea name="Comment" id="Comment" class="Comment" maxlength="100" rows="4" cols="67"></textarea>
+        <p id="Counter" class="Counter">0 / 100 Characters are used..</p>
+    </div>
+    <script>
+        let comment = document.getElementById("Comment");
+        let counter = document.getElementById("Counter");
+        const maxlength = comment.getAttribute("maxlength");
+
+        comment.addEventListener("input", function () {
+            let currentLength = comment.value.length;
+            console.log(currentLength);
+            counter.textContent = `${currentLength} / ${maxlength} Characters are used..`;
+
+            if (currentLength > maxlength - 10) {
+                counter.style.color = "red";
+            }
+            else {
+                counter.style.color = "black";
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

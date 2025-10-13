@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiper Slider</title>
+    <style>
+        .swiper {
+            width: 600px;
+            height: 400px;
+        }
+
+        .swiper img {
+            height: 670px;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .swiper-pagination-bullet {
+            width: 20px !important;
+            height: 20px !important;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            color: #000 !important;
+            opacity: 1 !important;
+            background: rgba(26, 24, 24, 0.2) !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            color: #fff !important;
+            background: #007aff !important;
+        } 
+    </style>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <!-- Slider main container -->
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+                <img src="https://fastly.picsum.photos/id/214/200/300.jpg?blur=5&hmac=iSDUnf_05Z9yStloo9GmbDwIy7h9IwRtsh9gswou3CI"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://fastly.picsum.photos/id/15/2500/1667.jpg?hmac=Lv03D1Y3AsZ9L2tMMC1KQZekBVaQSDc1waqJ54IHvo4"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://fastly.picsum.photos/id/16/2500/1667.jpg?hmac=uAkZwYc5phCRNFTrV_prJ_0rP0EdwJaZ4ctje2bY7aE"
+                    alt="">
+            </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+        <!-- <div class="swiper-scrollbar"></div> -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            // direction: 'vertical',
+            // loop: true,
+
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+                // type: "fraction",
+                clickable: true,
+                renderBullet: function (index, className) {
+                    return '<span class="' + className + '">' + (index + 1) + "</span>";
+                },
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // And if we need scrollbar
+            // scrollbar: {
+            //     el: '.swiper-scrollbar',
+            // },
+        });
+    </script>
+</body>
+
+</html>
