@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud Operation</title>
+</head>
+<body>
+    <div align="center">
+        <h2>CRUD Operation</h2>
+        <form>
+            <table border="1">
+                <tr>
+                    <td>Task : </td>
+                    <td><input type="text" id="task"></td>
+                </tr>
+                <tr>
+                    <td>Contact No : </td>
+                    <td><input type="text" id="contactNo"></td>
+                </tr>
+                <tr>
+                    <td>Gender : </td>
+                    <td>
+                        <input type="radio" name="gender" id="male" value="Male">
+                        <label for="male">Male</label>
+                        <input type="radio" name="gender" id="female" value="Female">
+                        <label for="female">Female</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Hobbies : </td>
+                    <td>
+                        <input type="checkbox" name="hobbies" id="coding" value="Coding">
+                        <label for="coding">Coding</label>
+                        <input type="checkbox" name="hobbies" id="playing" value="Playing">
+                        <label for="playing">Playing</label>
+                        <input type="checkbox" name="hobbies" id="music" value="Music">
+                        <label for="music">Music</label>
+                        <input type="checkbox" name="hobbies" id="reading" value="Reading">
+                        <label for="reading">Reading</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="button" value="Button" onclick="addTask()"></td>
+                </tr>
+            </table>
+        </form>
+
+        <h2>View Data</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Task</td>
+                    <td>Contact No</td>
+                    <td>Gender</td>
+                    <td>Hobbies</td>
+                </tr>
+            </thead>
+
+            <tbody id="viewData"></tbody>
+        </table>
+    </div>
+    <script src="./js/javascript.js"></script>
+</body>
+</html>
