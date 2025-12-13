@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 9</title>
+</head>
+
+<body>
+    <script>
+        let data = {
+            company: "TechSoft",
+            employees: [
+                {
+                    name: "Anil",
+                    projects: [
+                        { id: 1, title: "E-Commerce App" },
+                        { id: 2, title: "CRM Dashboard" }
+                    ]
+                },
+                {
+                    name: "Reema",
+                    projects: [
+                        { id: 3, title: "School ERP" },
+                        { id: 4, title: "Portfolio Builder" }
+                    ]
+                }
+            ]
+        };
+
+
+        for (const company in data) {
+            if (typeof data[company] !== "object") {
+                console.log(data[company]);
+            }
+
+            else {
+                for (const employees of data[company]) {
+                    for (const employeesKeys in employees) {
+                        if (typeof employees[employeesKeys] !== "object") {
+                            console.log(employees[employeesKeys])
+                        }
+
+                        else {
+                            for (const projects of employees[employeesKeys]) {
+                                for (const idTitle in projects) {
+                                    console.log(projects[idTitle]);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

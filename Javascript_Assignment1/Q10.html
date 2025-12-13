@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 10</title>
+</head>
+
+<body>
+    <script>
+        let data = {
+            university: "Global University",
+            departments: [
+                {
+                    deptName: "Computer Science",
+                    teachers: [
+                        {
+                            name: "Dr. Aman",
+                            subjects: ["OS", "DBMS", "Networking"]
+                        },
+                        {
+                            name: "Dr. Sara",
+                            subjects: ["AI", "ML"]
+                        }
+                    ]
+                },
+                {
+                    deptName: "Mechanical",
+                    teachers: [
+                        {
+                            name: "Mr. Raj",
+                            subjects: ["Thermodynamics", "Fluid Mechanics"]
+                        }
+                    ]
+                }
+            ]
+        };
+
+        for (const university in data) {
+            if (typeof data[university] !== "object") {
+                console.log(data[university]);
+            }
+
+
+            else {
+                for (const dept of data[university]) {
+                    for (const deptName in dept) {
+                        if (typeof dept[deptName] !== "object") {
+                            console.log(dept[deptName]);
+                        }
+                        else {
+                            for (const teachers of dept[deptName]) {
+                                for (const key in teachers) {
+                                    if (typeof teachers[key] !== "object") {
+                                        console.log(teachers[key]);
+                                    }
+                                    else {
+                                        for (const subjects of teachers[key]) {
+                                            console.log(subjects);
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

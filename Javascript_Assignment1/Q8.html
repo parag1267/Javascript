@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 8</title>
+</head>
+
+<body>
+    <script>
+        let data = {
+            institute: "Add Zero Group",
+            students: [
+                {
+                    name: "Rakesh",
+                    courses: ["React", "Node", "MongoDB"]
+                },
+                {
+                    name: "Megha",
+                    courses: ["HTML", "CSS", "JavaScript"]
+                }
+            ]
+        };
+
+        for (const key in data) {
+
+            if (typeof data[key] !== "object") {
+                console.log(data[key]);
+            }
+
+            else {
+                for (const students of data[key]) {
+                    for (const nameCourse in students) {
+                        if (typeof students[nameCourse] !== "object") {
+                            console.log(students[nameCourse]);
+                        }
+                        else {
+                            for (const courses of students[nameCourse]) {
+                                console.log(courses);
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

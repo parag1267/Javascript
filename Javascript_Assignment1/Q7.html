@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 7</title>
+</head>
+
+<body>
+    <script>
+        let data = [
+            {
+                category: "Fiction",
+                books: [
+                    { title: "Harry Potter" },
+                    { title: "Narnia" }
+                ]
+            },
+            {
+                category: "Science",
+                books: [
+                    { title: "Brief History of Time" },
+                    { title: "Cosmos" }
+                ]
+            }
+        ];
+
+        for (const category of data) {
+            for (const key in category) {
+                if (typeof category[key] !== "object") {
+                    console.log(category[key]);
+                }
+
+                else {
+                    for (const books of category[key]) {
+                        for (const title in books) {
+                            console.log(books[title]);    
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

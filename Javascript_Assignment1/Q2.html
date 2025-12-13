@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 2</title>
+</head>
+
+<body>
+    <script>
+        let data = {
+            name: "Rahul",
+            skills: ["HTML", "CSS", "JavaScript"]
+        };
+
+        for (const key in data) {
+            if (typeof data[key] !== "object") {
+                console.log(data[key]);
+            }
+            else {
+                for (const value in data[key]) {
+                    console.log(value);
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>
